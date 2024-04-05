@@ -10,17 +10,19 @@ Episodio dentro de seu atributo que contém o vetor de episódios;
 ● As classes Episodio e Filme implementam a interface Midia;
 ● O método obterProtagonistas da classe Obra retorna um vetor contendo
 apenas os personagens que são protagonistas;
-======================================================================
-                            Feito
-======================================================================
 ● O método obterNota na classe Serie calcula a média das notas das
 temporadas da série e retorna este valor;
 ● Todos os métodos da classe EstatisticasDeSeries são estáticos;
+
 ● O método obterDuracaoTotalDaSerie na classe EstatisticasDeSeries irá
 somar a duração de todos os episódios de todas as temporadas da série e
-retorná-lo;
+retorná-lo; 
+
 ● O método obterTotalDeEpisodios na classe EstatisticasDeSeries irá somar a
 quantidade de episódios de todas as temporadas da série e retorná-lo;
+======================================================================
+                            Feito
+======================================================================
 ● O método obterPaisesAtoresPersonagens na classe EstatisticasDeSeries irá
 contar a quantidade de atores por país levando em conta os personagens da
 série. Este método deve retornar um array, contendo os nomes dos países
