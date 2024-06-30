@@ -1,0 +1,147 @@
+:root {
+    --back_ground: #ffcdd4;
+    --super_light_pink: #fddfe8;
+    --normal_pink: #fc6998;
+    --dark_pink: #f74780;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    background-color: var(--back_ground);
+}
+
+.pages {
+    display: flex;
+    width: fit-content;
+    list-style: none;
+}
+
+.pages > li {
+    background-color: var(--super_light_pink);
+    padding: 5px 3px;
+    border: 1px solid #646464;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+.pages > li:hover{
+    background-color: var(--normal_pink);
+}
+
+.pages > li:first-of-type{
+    background-color: var(--normal_pink);
+    border-radius: 7px 0 0 7px;
+}
+
+.pages > li:last-of-type{
+    border-radius: 0 7px 7px 0;
+}
+
+h2 {
+    font-family: "Playwrite ES Deco", cursive;
+}
+
+.input-area{
+    display: flex;
+    width: fit-content;
+    border-radius: 7px;
+    border: 1px solid #646464;
+}
+
+.input-area > input {
+    border: none;
+    border-radius: 5px 0 0 5px;
+    padding: 1px 2px;
+}
+
+.input-area > button{
+    width: fit-content;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f74780;
+    background-color: white;
+    border: none;
+    border-radius: 0 7px 7px 0;
+}
+
+
+
+.cards-area {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    padding: 10px 40px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    overflow: hidden;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 80%;
+    height: auto;
+}
+
+.product-infos {
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: .8em;
+}
+
+.product-infos * {
+    font-family: "Playwrite US Modern", cursive;
+}
+
+.product-infos p:first-of-type {
+    font-size: 1rem;
+}
+.product-infos p:nth-of-type(2n) {
+    font-size: .8rem;
+}
+
+.product-infos button {
+    background-color: var(--normal_pink);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    max-width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.product-infos button:hover {
+    background-color: var(--dark_pink);
+}
