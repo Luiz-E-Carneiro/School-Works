@@ -47,13 +47,18 @@
         elseif ($_GET['consulta'] == "insert") {
             $data = $db->execute(
                 "INSERT INTO carros (marca, modelo, ano, placa, cor) VALUES (:marca, :modelo, :ano, :placa, :cor)",
-                ['Toyota', 'Corolla', 2020, 'ABC1234', 'Branco']);
+                [":marca" => "Toyota", ":modelo" => "Corolla",":ano" => 2020, ":placa" => "ABC1234", ":cor" => "Branco"]);
         }
         elseif ($_GET['consulta'] == "update") {
-            $data = $db->Select("UPDATE carros SET cor = :cor WHERE id = :id", ["Neon", 1]);
+            $data = $db->Select("UPDATE carros SET cor = :cor WHERE id = :id", [
+                ":cor" => "Violeta",
+                ":id" => 1
+            ]);
         }
         elseif ($_GET['consulta'] == "delete") {
-            $data = $db->Select("DELETE FROM carros WHERE id = :id", [1]);
+            $data = $db->Select("DELETE FROM carros WHERE id = :id", [
+                ":id" => 1
+            ]); 
         }
     }
     ?>
