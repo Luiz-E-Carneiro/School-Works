@@ -1,0 +1,27 @@
+Cores:
+- Madeira: #a56f43
+- Cinza: #243b3b
+- bege escuro: #b49579
+- verde cagado: #7c8046
+
+Tabelas:
+
+- Produtos
+-> Nome
+-> Valor
+-> descrição
+-> dimensões
+-> avaliação
+-> forma de entrea
+-> quantidade
+-> materiais
+
+- Imagens:
+-> URL
+-> id_produto
+
+- Rodapé:
+-> Descrição
+-> Seu nome
+-> Seu email
+-> Sua mensagem
