@@ -29,14 +29,32 @@ final class DisciplinaModel extends Model
     }
     
     public function insert($vo){
+        $db = new Database();
+        $query = "INSERT INTO disciplinas (nome) VALUES (:nome)";
+        $binds = [":nome" => $vo->getNome()];
 
+        return $db->execute($query, $binds);
+        
     }
     
     public function update($vo){
-
+        $db = new Database();
+        $query = "UPDATE disciplinas SET nome = :nome WHERE id = :id";
+        $binds = [
+            ":nome" => $vo->getNome(),
+            ":id" => $vo->getId()
+        ];
+    
+        return $db->execute($query, $binds);
     }
     
     public function delete($vo){
-
+        $db = new Database();
+        $query = "DELETE FROM disciplinas WHERE id = :id";
+        $binds = [
+            ":id" => $vo->getId()
+        ];
+    
+        return $db->execute($query, $binds);
     }
 }

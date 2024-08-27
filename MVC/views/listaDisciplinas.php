@@ -22,7 +22,7 @@
                 <td>
                     <a href="disciplina.php?id=<?php echo $disciplina->getId(); ?>">Editar</a>
                     <br>
-                    <a href="disciplina.php?id=<?php echo $disciplina->getId(); ?>">Excluir</a>
+                    <a href="excluirDisciplina.php?id=<?php echo $disciplina->getId(); ?>">Excluir</a>
                 </td>
             </tr>
 
