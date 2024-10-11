@@ -4,6 +4,10 @@ namespace Controller;
 
 abstract class Controller {
 
+    public function __construct(){
+        session_start();
+    }
+
     public function redirect($url) {
         header("Location: " . $url);
     }

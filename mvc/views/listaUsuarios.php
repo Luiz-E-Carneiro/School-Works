@@ -22,7 +22,7 @@
                 <td><?php echo $usuario->getLogin(); ?></td>
                 <td>
                     <a href="usuario.php?id=<?php echo $usuario->getId(); ?>">Editar</a>
-                    <a href="exluirUsuario.php?id=<?php echo $usuario->getId(); ?>">Editar</a>
+                    <a href="excluirUsuario.php?id=<?php echo $usuario->getId(); ?>">Exluir</a>
                 </td>
             </tr>
 

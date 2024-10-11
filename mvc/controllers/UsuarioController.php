@@ -28,4 +28,24 @@ final class UsuarioController extends Controller
         ]);
     }
         
+    public function save() {
+        $id = $_POST['id'];
+        $model = new UsuarioModel();
+
+        $vo = new UsuarioVO($id, $_POST['login'], $_POST['senha']);
+        
+        if(empty($id)){
+            $result = $model->insert($vo);
+        }else{
+            $result = $model->update($vo);
+        }
+
+        $this->redirect("usuarios.php");
+    }
+
+    public function remove() {
+        $model = new UsuarioModel();
+        $model->delete(new UsuarioVO($_GET['id']));
+        $this->redirect("usuarios.php");
+    }
 }

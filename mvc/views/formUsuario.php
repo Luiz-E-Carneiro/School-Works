@@ -15,6 +15,14 @@
         <br>
         <input type="password" name="senha" placeholder="Senha:">
         <br>
+        <?php
+            if(!empty($usuario->getId())){
+        ?>
+        <span>Para deixar a senha atual, basta deixar o campo em branco!</span>
+        <?php
+            }
+        ?>
+        <br>
         <button type="submit">Salvar</button>
     </form>
 </body>
