@@ -6,11 +6,13 @@ final class AlunoVO extends VO {
 
     private $nome;
     private $matricula;
+    private $foto;
 
-    public function __construct($id = 0, $nome = "", $matricula = "") {
+    public function __construct($id = 0, $nome = "", $matricula = "", $foto = "") {
         parent::__construct($id);
         $this->nome = $nome;
         $this->matricula = $matricula;
+        $this->foto = $foto;
     }
 
     public function getNome() {
@@ -27,6 +29,14 @@ final class AlunoVO extends VO {
 
     public function setMatricula($matricula) {
         $this->matricula = $matricula;
+    }
+
+    public function getFoto() {
+        return $this->foto;
+    }
+
+    public function setFoto($foto) {
+        $this->foto = $foto;
     }
 
 }

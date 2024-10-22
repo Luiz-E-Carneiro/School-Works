@@ -6,8 +6,8 @@
     <title>Sistema Acadêmico - Usuários</title>
 </head>
 <body>
+    <?php include("includes/menu.php"); ?>
     <h1>Sistema Acadêmico - Usuários</h1>
-
     <a href="usuarios.php">Voltar</a>
     <form action="salvarUsuario.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $usuario->getId(); ?>">
@@ -23,6 +23,17 @@
             }
         ?>
         <br>
+
+        <select name="nivel">
+            <option value="1" <?php echo ($usuario->getNivel() == 1) ? 'selected' : ''; ?>>
+                Nível 1
+            </option>
+            <option value="2" <?php echo ($usuario->getNivel() == 2) ? 'selected' : ''; ?>>
+                Nível 2
+            </option>
+        </select>
+        <br>
+
         <button type="submit">Salvar</button>
     </form>
 </body>

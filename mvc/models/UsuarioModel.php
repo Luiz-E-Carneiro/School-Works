@@ -9,13 +9,13 @@ final class UsuarioModel extends Model
 {
     public function selectAll($vo){
         $db = new Database();
-        $query = "SELECT * FROM usuario";
+        $query = "SELECT * FROM usuarios";
         $data = $db->select($query);
 
         $arrayList = [];
 
         foreach ($data as $row) {
-            $vo = new UsuarioVO($row['id'], $row['login'], $row['senha'] );
+            $vo = new UsuarioVO($row['id'], $row['login'], $row['senha'], $row['nivel']);
             array_push($arrayList, $vo);
         }
 
@@ -24,41 +24,46 @@ final class UsuarioModel extends Model
 
     public function selectOne($vo){
         $db = new Database();
-        $query = "SELECT * FROM usuario WHERE id = :id";
+        $query = "SELECT * FROM usuarios WHERE id = :id";
         $binds = [':id' => $vo->getId()];
 
         $data = $db->select($query, $binds);
 
-        return new UsuarioVO($data[0]['id'], $data[0]['login'], $data[0]['senha']);
+        return new UsuarioVO($data[0]['id'], $data[0]['login'], $data[0]['senha'], $data[0]['nivel']);
 
     }
     
     public function insert($vo){
         $db = new Database();
-        $query = "INSERT INTO usuario (login, senha) VALUES (:login, :senha)";
+        $query = "INSERT INTO usuarios (login, senha, nivel) 
+                    VALUES (:login, :senha, :nivel)";
         $binds = [
             ":login" => $vo->getLogin(),
-            ":senha" => md5($vo->getSenha())
+            ":senha" => md5($vo->getSenha()),
+            ":nivel" => $vo->getNivel()
         ];
 
         return $db->execute($query, $binds);
     }
     public function update($vo){
         $db = new Database();
-        if(!empty($vo->getSenha())){
-            $query = "UPDATE usuario SET login = :login
+        if(empty($vo->getSenha())){
+            $query = "UPDATE usuarios SET login = :login, nivel = :nivel
             WHERE id = :id";
             
             $binds = [
                 ":login" => $vo->getLogin(),
+                ":nivel" => $vo->getNivel(),
                 ":id" => $vo->getId()
             ];
         }else{
             
-            $query = "UPDATE usuario SET login = :login, senha = :senha
-                      WHERE id = :id";
+            $query = "UPDATE usuarios SET login = :login, 
+                        senha = :senha, nivel = :nivel, 
+                        WHERE id = :id";
             $binds = [
                 ":login" => $vo->getLogin(),
+                ":nivel" => $vo->getNivel(),
                 ":senha" => md5($vo->getSenha()),
                 ":id" => $vo->getId()
             ];
@@ -76,7 +81,7 @@ final class UsuarioModel extends Model
 
     public function doLogin($vo){
         $db = new Database();
-        $query = "SELECT * FROM usuario 
+        $query = "SELECT * FROM usuarios 
                 WHERE login = :login AND senha = :senha";
 
         $binds = [
@@ -90,7 +95,7 @@ final class UsuarioModel extends Model
             return null;
         }
 
-        $_SESSION['usuario'] = new UsuarioVO($data[0]['id'], $data[0]['login'], $data[0]['senha']);
+        $_SESSION['usuario'] = new UsuarioVO($data[0]['id'], $data[0]['login'], $data[0]['senha'], $data[0]['nivel']);
 
         return $_SESSION['usuario'];
     }

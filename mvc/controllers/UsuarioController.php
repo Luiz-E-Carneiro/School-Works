@@ -6,6 +6,16 @@ use Model\VO\UsuarioVO;
 
 final class UsuarioController extends Controller
 {
+
+    public function __construct() {
+        parent::__construct();
+
+        if($_SESSION["usuario"]->getNivel() == 2) {
+            $this->redirect("index.php");
+            exit;
+        }
+    }
+
     public function list(){
         $model = new UsuarioModel();
         $data = $model->selectAll(new UsuarioVO());
@@ -32,7 +42,7 @@ final class UsuarioController extends Controller
         $id = $_POST['id'];
         $model = new UsuarioModel();
 
-        $vo = new UsuarioVO($id, $_POST['login'], $_POST['senha']);
+        $vo = new UsuarioVO($id, $_POST['login'], $_POST['senha'], $_POST['nivel']);
         
         if(empty($id)){
             $result = $model->insert($vo);

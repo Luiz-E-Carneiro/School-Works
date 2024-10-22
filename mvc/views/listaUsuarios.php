@@ -6,13 +6,14 @@
     <title>Sistema Acadêmico - Usuário</title>
 </head>
 <body>
+    <?php include("includes/menu.php"); ?>
     <h1>Sistema Acadêmico - Usuário</h1>
     <a href="usuario.php">Inserir novo</a>
-
     <table>
         <tr>
             <td>ID</td>
             <td>Login</td>
+            <td>Nível</td>
             <td>Ações</td>
         </tr>
         <?php foreach ($usuarios as $usuario) : ?>
@@ -20,6 +21,7 @@
             <tr>
                 <td><?php echo $usuario->getId(); ?></td>
                 <td><?php echo $usuario->getLogin(); ?></td>
+                <td><?php echo $usuario->getNivel(); ?></td>
                 <td>
                     <a href="usuario.php?id=<?php echo $usuario->getId(); ?>">Editar</a>
                     <a href="excluirUsuario.php?id=<?php echo $usuario->getId(); ?>">Exluir</a>
